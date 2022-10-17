@@ -26,6 +26,7 @@ As tecnologias e ferramentas ensinadas pela [Alura](https://www.alura.com.br/) n
 - Redux
 - AsyncStorage
 - Web API
+- Autenticação
 
 ## 📲 O aprendizado do aluno Fábio Mori
 ### Deixa eu te contar uma história
@@ -36,58 +37,45 @@ E o melhor, um caderno que cabe no nosso bolso e estamos sempre em mão, ou seja
 
 ### O que eu aprendi?
 
-- AsyncStorage
-  - É uma API, guarda sempre uma string com o conceito de chave e valor.
-  - Guarda informações de uma maneira parecida com o objeto JSON, em chaves e valores ["chave":"valor"], porém ambos devem ser strings.
-  - Não gera o ID automaticamente.
-  - Existe uma maneira de guardar objetos contento mais informações, transformando um objeto JSON em uma string e depois guardando essa string no AsyncStorage (para
-  recuperar essa informação podemos receber seu conteúdo e depois transformá-lo no novamente em um objeto JSON). Para isso é necessário utilizar a função 
-  `JSON.stringify()` que vai transformar nosso objeto em uma string e depois utilizar a função `JSON.parse()` para fazer o processo reverso.
-  - Algumas limitações do AsyncStorage:
-    - Só guarda strings.
-    - Limitação de espaço para Android:
-      - Máximo de 6MB, sendo 2MB por entrada.
-    - Informações não são criptografadas.
-    - Não consegue fazer consultas (só pega a informação inteira) e não lida com o conceito de relacionamento de dados (diferentes objetos que possuem dados comuns
-    que se relacionam entre eles).
+- Context API:
+  - Uma ferramenta nativa do React.
+  - É uma solução ao problema de hierarquia de componentes no React Native, que pode deixar uma aplicação com várias telas, por exemplo, complicada de se implementar devido ao fluxo das informações entre os componentes.
+  - É de simples implementação, focada em passar propriedades para componentes sem se preocupar com os níveis de "nesting", que são componentes dentro de outros.
+  - É muito útil para aplicações com várias telas, onde precisamos acessar propriedades globalmente em outros componentes.
+  - Muito usado para autenticação com login e senha.
+  - É uma boa alternativa para aplicativos de e-commerce com lista e carrinho de compra.
+  - Pode ser usado para alterar estilos globais de cores da aplicação, como por exemplo, temas claros e escuros.
+  - Organiza o crescimento do projetos e nos ajuda a lidar melhor com aplicaçãoes maiores (com muitas telas).
+  - Conecta diferentes componentes de uma mesma aplicação, é um gerenciador de estado global. Com ele, é possível acessar variáveis e funções nas mais diversas telas e componentes da nossa aplicação.
+  - Algumas de suas desvantagens são quando muitas propriedades precisam ser passadas para diversos componentes ou quando aplicações complexas com várias regras de negócio precisam alterar vários estados de propriedades/objetos.
+
+- API:
+  - É uma interface de programa e aplicação, um conjunto de definições e protocolos para criar e integrar softwares.
   
-- SQLite
-  - É uma API que não guarda apenas strings, mas também imagens e vídeos, por exemplo.
-  - Consegue lidar com relacionamentos de dados.
-  - Permite fazer consulta e filtros.
-  - Informações são criptografadas.
+- Web API:
+  - É uma interface que conecta diferentes sistemas.
   
-- Entidade (em Banco de Dados):
-  - Em modelagem, entidade é tudo aquilo sobre o qual desejamos guardar alguma informação. É um objeto existente no mundo real, com uma identificação distinta e 
-  significado próprio. São coisas que existem no negócio, ou ainda, que descrevem o negócio em si. Se algo existe e proporciona algum interesse em manter dados
-  sobre ele, isso caracteriza como uma entidade deste negócio. Sendo assim, ela é uma tabela em nosso banco de dados.
-  - Exemplo:
-    - Pessoa: A, CPF: 0123456789, é uma entidade uma vez que só pode existir uma única pessoa com o mesmo nome e CPF.
-    - Clientes, funcionários, departamentos, fornecedores, são entidades de um banco de dados de uma empresa.
+- Estilos globais:
+  - Quando falamos de estilos globais, ou melhor dizendo, variáveis globais, estamos nos referindo a variáveis que são enxergadas e podem ser usadas em todo o projeto, de forma global.
+  
+- Redux (informações retiradas do [artigo](https://www.alura.com.br/artigos/estados-globais-diferencas-redux-context-api?utm_source=gnarus&utm_medium=timeline)):
+  - Gerencia estados globais, como por exemplo, variáveis e funções de uma aplicação.
+  - Biblioteca Java Script, usada em controle de aplicações que precisar ter estados alterados com uma alta frequência.
+  - Usado também quando existem muitos estados para serem controlados e a lógica para a atualização é muito complexa.
+  - Uma de suas desvantagens é que precisa de vários passos para implementar, fazendo com que se torne uma ferramenta muito complexa para projetos simples.
+  - Algumas funções utilizadas no Redux:
+    - `Actions`: alteram algum estado dentro da aplicação.
+    - `Reducers`: recebem um estado e atualizam com a devida `Action`.
+    - `Store`: onde os estados ficam guardados.
+    - `Dispatch`: é o "ouvinte de eventos", quando um evento é chamado, por um botão, por exemplo, ele executa um `Reducer`com a devida `Action`.
     
-- Atributos:
-  - São propriedades/características que identificam as entidades. 
-    - Exemplos:
-      - Entidade: cliente / Atributos: nome, endereço, telefone e cidade.
-      - Entidade: funcionário / Atributos: salário, cargo e departamento.
-  - Existem 4 tipos de atributos: simples, composto, multivalorado e determinante.
-    - Simples: a grade maioria, não possui características especiais.
-    - Composto: pode ser desmembrado em vários atributos simples.
-      - Exemplo:
-        - Atributo: endereço (rua, n°, complemento, bairro, CEP e cidade).
-    - Multivalorado: o seu conteúdo é formado por mais de um valor.
-      - Exemplo: 
-        - Atributo: telefone celular (uma pessoa pode ter mais de um número).
-      - É indicado colocando-se um asterisco precedendo o nome do atributo.
-    - Determinante: identifica de forma única uma entidade, ou seja, não pode haver outro repetido/igual.
-      - Exemplo: Atributo: CNPJ ou CPF.
-      - É indicado sublinhando-se o nome do atributo.
-      - Serão as chaves primárias no banco de dados e toda tabela precisa ter um atributo determinante.
-
-- Para saber mais sobre atributos e entidades, ler este [artigo](https://www.luis.blog.br/analise-de-entidade-atributos-simples-compostos-multivalorados.html)
-
-- Banco de Dados:
-  - Compreende uma coleção de conjuntos de entidades do mesmo tipo
+ - Tipos de autenticação (informações retiradas do [artigo](https://www.alura.com.br/artigos/tipos-de-autenticacao)): 
+  - Usuário e senha.
+  - Biometria (digital, íris ou voz).
+  - Dois fatores (login + email, por exemplo).
+  - Sessão.
+  - Token.
+  - No dia a dia, uma aplicação voltada para garantir a segurança de seus usuários utiliza uma autenticação com login (usuário e senha) e os dados do usuário, como nome, email e telefone, são retornados diretamente para o aplicativo de forma criptografada, assim, só o código interno do aplicativo decifra os dados retornados.
   
 
 
