@@ -77,57 +77,26 @@ E o melhor, um caderno que cabe no nosso bolso e estamos sempre em mão, ou seja
   - Token.
   - No dia a dia, uma aplicação voltada para garantir a segurança de seus usuários utiliza uma autenticação com login (usuário e senha) e os dados do usuário, como nome, email e telefone, são retornados diretamente para o aplicativo de forma criptografada, assim, só o código interno do aplicativo decifra os dados retornados.
   
+### ▶️ Rodando o Projeto
 
-
-
-
-
-
-
-
-
-
-
-
-## :information_source: Como usar
-
-Para copiar e executar essa aplicação, você precisa de três pré-requisitos: [Git](https://git-scm.com), [Node.js][nodejs] + [Yarn][yarn] intalados no seu computador.
-
-No terminal, digite os comandos a seguir:
-
-### Baixar e instalar o projeto
-
-```bash
-# Clonar esse repositório
-$ git clone https://github.com/alura-cursos/react-native-context-api.git
-
-# Vá para o ropositório
-$ cd AluraCommerce
-
-# Instale as dependências
-$ npm install
+Instalando o AsyncStorage (utilizado para salvar localmente o tema de cores da aplicação):
 ```
-
-### Executar o Mobile
-
-```bash
-# Execute em outro terminal (dentro da pasta AluraCommerce)
-$ expo start
+npm install @react-native-async-storage/async-storage@1.15.17
 ```
-
-### Executar a Web API
-
-```bash
-# Execute em outro terminal (dentro da pasta AluraCommerce)
-# Lembre-se de alterar o endereco ip (192.168.15.43) para o do seu computador!
-$ json-server --watch --host 192.168.15.43 db.json
+Instalando o Axios:
 ```
-
-
-
-Espero que você utilize ao máximo deste projeto para se aprimorar! E se quiser dar um salve, estou lá no LinkedIn [André Oliveira Cunha](https://www.linkedin.com/in/andr%C3%A9-oliveira-cunha-b26b3a156/). :wave: 
-
-[nodejs]: https://nodejs.org/
-[expo]: https://docs.expo.dev/
-[rn]: https://facebook.github.io/react-native/
-[yarn]: https://yarnpkg.com/
+npm install axios
+```
+Com a pasta do projeto no computador no terminal, digite:
+```
+npm install
+```
+Agora, digite para iniciar o projeto:
+```
+npm start
+```
+Para conectar a Web API:
+```
+json-server --watch --host COLOQUE_O_SEU_IP_AQUI(EX:192.168.15.X) db.json
+```
+IMPORTANTE: Não se esqueça de alterar o IP também no arquivo `api.js` que está na pasta `src\servicos\api.js`.
