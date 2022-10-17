@@ -1,0 +1,10 @@
+{
+  "produtos": [
+    {
+      "imagem": 21,
+      "texto": "Camiseta Escola Matriz",
+      "preco": 40,
+      "id": 3
+    }
+  ]
+}
